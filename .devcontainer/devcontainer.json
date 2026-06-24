@@ -1,0 +1,31 @@
+{
+  "name": "sd-dev",
+  "image": "twint/sd:latest",
+  "initializeCommand": "xhost +local:root",
+  "features": {},
+  "runArgs": [
+    "--net=host",
+    "--ipc=host",
+    "--env=DISPLAY=${localEnv:DISPLAY}",
+    "--volume=/tmp/.X11-unix:/tmp/.X11-unix"
+  ],
+  "containerEnv": {
+    "WINIT_UNIX_BACKEND": "x11",
+    "WAYLAND_DISPLAY": ""
+  },
+  "remoteEnv": {
+    "WINIT_UNIX_BACKEND": "x11",
+    "WAYLAND_DISPLAY": ""
+  },
+  "postCreateCommand": "apt-get update && apt-get install -y libx11-6 libxext6 libxrender1 libxtst6 libxi6 libxrandr2 libxinerama1 libxcursor1 libxkbcommon0 libxkbcommon-x11-0 libgl1",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "twint.hdl-studio",
+        "mshr-h.veriloghdl",
+        "gxl.git-graph-3",
+        "surfer-project.surfer"
+      ]
+    }
+  }
+}

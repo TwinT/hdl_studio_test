@@ -216,3 +216,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Verilator simulation artifacts (obj_dir/, binarios, trazas FST)
+**/build/
