@@ -16,8 +16,8 @@ module helloworld_tb;
   // ── Señales ────────────────────────────────────────────────────────────────
   logic [1:0] value;
   logic       a, b, result;
-  logic       ok;
-  logic       ready, all_tests_passed;
+  logic       pass;
+  logic       done, dv, all_tests_passed;
 
   assign a = value[0];
   assign b = value[1];
@@ -29,16 +29,17 @@ module helloworld_tb;
       .c(result)
   );
 
-  assign ok = (result == (~a | ~b));
+  assign pass = (result == (~a | ~b));
 
   // ── Oracle (recorre todas las combinaciones de entradas) ───────────────────
   oracle_tb #(.N(2)) oracle (
       .clk             (clk),
       .rst             (rst),
-      .result_ok       (ok),
-      .ready           (ready),
+      .pass            (pass),
+      .done            (done),
       .all_tests_passed(all_tests_passed),
-      .value           (value)
+      .value           (value),
+      .dv              (dv)
   );
 
   // ── Traza FST y terminación ────────────────────────────────────────────────
@@ -46,7 +47,7 @@ module helloworld_tb;
     $dumpfile("build/sim.fst");
     $dumpvars(0, helloworld_tb);
 
-    wait (ready);
+    wait (done);
 
     if (all_tests_passed)
       $display("PASS: todos los tests pasaron");
