@@ -32,7 +32,7 @@ module helloworld_tb;
   assign ok = (result == (~a | ~b));
 
   // ── Oracle (recorre todas las combinaciones de entradas) ───────────────────
-  oracle_tb #(.n(2)) oracle (
+  oracle_tb #(.N(2)) oracle (
       .clk             (clk),
       .rst             (rst),
       .result_ok       (ok),
@@ -51,8 +51,7 @@ module helloworld_tb;
     if (all_tests_passed)
       $display("PASS: todos los tests pasaron");
     else
-      $display("FAIL: falla con a=%b b=%b result=%b (esperado=%b)",
-               a, b, result, (~a | ~b));
+      $display("FAIL: hubo combinaciones que fallaron (ver detalle arriba)");
 
     #1;  // flush de la traza
     $finish;
