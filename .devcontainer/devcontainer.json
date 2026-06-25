@@ -22,7 +22,6 @@
       "extensions": [
         "twint.hdl-studio",
         "mshr-h.veriloghdl",
-        "gxl.git-graph-3",
         "surfer-project.surfer"
       ]
     }
