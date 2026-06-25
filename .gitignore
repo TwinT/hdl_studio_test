@@ -220,3 +220,4 @@ __marimo__/
 # Verilator simulation artifacts (obj_dir/, binarios, trazas FST)
 **/build/
 .claude/settings.local.json
+!ejemplos/**/lib
