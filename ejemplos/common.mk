@@ -51,7 +51,7 @@ $(FST_FILE): $(SIM_BIN)
 wave: $(FST_FILE)
 	WAYLAND_DISPLAY= WINIT_UNIX_BACKEND=x11 surfer $(FST_FILE); \
 
-wave2: $(FST_FILE)
+wave_code: $(FST_FILE)
 	code $(FST_FILE)
 
 clean:
