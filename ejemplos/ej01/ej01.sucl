@@ -1,4 +1,0 @@
-scope_add_as_group helloworld_tb.dut
-scope_add_as_group helloworld_tb.oracle
-item_focus helloworld_tb.dut
-item_set_color pink

@@ -48,8 +48,10 @@ $(SIM_BIN): $(ALL_SRCS)
 $(FST_FILE): $(SIM_BIN)
 	./$(SIM_BIN)
 
+CMD_FILE ?=
+
 wave: $(FST_FILE)
-	WAYLAND_DISPLAY= WINIT_UNIX_BACKEND=x11 surfer $(FST_FILE); \
+	WAYLAND_DISPLAY= WINIT_UNIX_BACKEND=x11 surfer $(FST_FILE)$(if $(CMD_FILE), -c $(CMD_FILE)); \
 
 wave_code: $(FST_FILE)
 	code $(FST_FILE)
