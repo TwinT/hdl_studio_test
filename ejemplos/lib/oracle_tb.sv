@@ -42,10 +42,19 @@ module oracle_tb #(
 
   initial begin
     wait (done);
-    if (tests_passing)
-      $display("\033[32mPASS: todos los tests pasaron\033[0m");
-    else
-      $display("\033[31mFAIL: hubo combinaciones que fallaron\033[0m");
+    if (tests_passing) begin
+      $display("");
+      $display("\033[1;32m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      $display("  ✓  PASS: todos los tests pasaron");
+      $display("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m");
+      $display("");
+    end else begin
+      $display("");
+      $display("\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━");
+      $display("  ✗  FAIL: hubo tests que fallaron");
+      $display("━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m");
+      $display("");
+    end
   end
 
 endmodule

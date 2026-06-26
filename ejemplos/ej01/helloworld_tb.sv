@@ -29,7 +29,7 @@ module helloworld_tb;
       .c(result)
   );
 
-  assign pass = (result == (~a | ~b));
+  assign pass = (result == (a | ~b));
 
   // ── Oracle (recorre todas las combinaciones de entradas) ───────────────────
   oracle_tb #(.N(2)) oracle (
