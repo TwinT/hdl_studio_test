@@ -1,0 +1,12 @@
+{
+  "index": [
+    {
+      "dirs": [
+        "ejercicios"
+      ],
+      "excludeDirs": [
+        "build"
+      ]
+    }
+  ]
+}

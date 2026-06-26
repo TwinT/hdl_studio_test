@@ -1,4 +1,0 @@
-{
-  "verilog.linting.linter": "slang",
-  "verilog.linting.slang.arguments": "-y ${workspaceFolder}/ejercicios/lib --ignore-unknown-modules"
-}

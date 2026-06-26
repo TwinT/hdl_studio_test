@@ -21,8 +21,9 @@
     "vscode": {
       "extensions": [
         "twint.hdl-studio",
-        "mshr-h.veriloghdl",
-        "surfer-project.surfer"
+        "surfer-project.surfer",
+        "Hudson-River-Trading.vscode-slang",
+        "lramseyer.vaporview"
       ]
     }
   }

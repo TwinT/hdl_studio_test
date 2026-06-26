@@ -1,6 +1,5 @@
-// Testbench auto-contenido para helloworld.sv
-// Compatible con Verilator (--timing, --trace-fst).
-// Sin puertos: genera su propio clk/rst y termina con $finish.
+// Testbench para helloworld.sv
+
 module helloworld_tb;
 
   // ── Clock & Reset ──────────────────────────────────────────────────────────
@@ -17,7 +16,7 @@ module helloworld_tb;
   logic [1:0] value;
   logic       a, b, result;
   logic       pass;
-  logic       done, dv;
+  logic       done;
 
   assign a = value[0];
   assign b = value[1];
@@ -29,7 +28,7 @@ module helloworld_tb;
       .c(result)
   );
 
-  assign pass = (result == (a | ~b));
+  assign pass = (result == (~a | ~b));
 
   // ── Oracle (recorre todas las combinaciones de entradas) ───────────────────
   oracle_tb #(.N(2)) oracle (
