@@ -6,15 +6,12 @@ module oracle_tb #(
     input  logic         rst,
     input  logic         pass,
     output logic         done,
-    output logic         all_tests_passed,
     output logic [N-1:0] value,
     output logic         dv
 );
 
   logic tests_passing;
   logic first;
-
-  assign all_tests_passed = done & tests_passing;
 
   always_ff @(posedge clk) begin
     if (rst) begin
@@ -41,6 +38,14 @@ module oracle_tb #(
         end
       end
     end
+  end
+
+  initial begin
+    wait (done);
+    if (tests_passing)
+      $display("\033[32mPASS: todos los tests pasaron\033[0m");
+    else
+      $display("\033[31mFAIL: hubo combinaciones que fallaron\033[0m");
   end
 
 endmodule

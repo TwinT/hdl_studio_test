@@ -17,7 +17,7 @@ module helloworld_tb;
   logic [1:0] value;
   logic       a, b, result;
   logic       pass;
-  logic       done, dv, all_tests_passed;
+  logic       done, dv;
 
   assign a = value[0];
   assign b = value[1];
@@ -37,7 +37,6 @@ module helloworld_tb;
       .rst             (rst),
       .pass            (pass),
       .done            (done),
-      .all_tests_passed(all_tests_passed),
       .value           (value),
       .dv              (dv)
   );
@@ -48,11 +47,6 @@ module helloworld_tb;
     $dumpvars(0, helloworld_tb);
 
     wait (done);
-
-    if (all_tests_passed)
-      $display("\033[32mPASS: todos los tests pasaron\033[0m");
-    else
-      $display("\033[31mFAIL: hubo combinaciones que fallaron (ver detalle arriba)\033[0m");
 
     #1;  // flush de la traza
     $finish;
