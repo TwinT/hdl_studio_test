@@ -33,16 +33,17 @@ significa esto:
   
 El código del multiplexor quedaría así:
 */
-module multiplexor46(
-  input logic [5:0] a, b, c, d,
-  input logic [1:0] sel,
-  output logic [5:0] out
+module multiplexor46 (
+    input  logic [5:0] a,
+    input  logic [5:0] b,
+    input  logic [5:0] c,
+    input  logic [5:0] d,
+    input  logic [1:0] sel,
+    output logic [5:0] out
 );
-  
-  assign out = sel[1] ?
-               (sel[0] ? d : c) :
-               (sel[0] ? b : a);
-  
+
+  assign out = sel[1] ? (sel[0] ? d : c) : (sel[0] ? b : a);
+
 endmodule
 
 /*
@@ -69,14 +70,16 @@ bit más a la derecha del resultado va a ser siempre 0. Ej:
 1  0  0  1  1  0
 
 Sugerencia: el ejercicio se puede resolver usando solamente dos "assign".
-Resolver usando el código a continuación y testear usando ej04_tb.sv:
-
-module ej04(
-  input logic [5:0] in,
-  output logic [5:0] out);
-  
-  // COMPLETAR
-  
-endmodule
+Resolver usando el código a continuación y testear usando vectores_tb.sv:
 */
+
+module vectores (
+    input  logic [5:0] in,
+    output logic [5:0] out
+);
+
+  // COMPLETAR
+  assign out = {in[4:0], 1'b0};
+
+endmodule
 

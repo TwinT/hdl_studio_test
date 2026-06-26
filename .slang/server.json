@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "flags": "-Wno-empty-output-connection",
+  "flags": "-Wno-empty-output-connection ",
   "inlayHints": {
     "portTypes": false
   }
