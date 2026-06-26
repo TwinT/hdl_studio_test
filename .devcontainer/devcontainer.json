@@ -23,7 +23,8 @@
         "twint.hdl-studio",
         "surfer-project.surfer",
         "Hudson-River-Trading.vscode-slang",
-        "lramseyer.vaporview"
+        "lramseyer.vaporview",
+        "kukdh1.verible-formatter"
       ]
     }
   }

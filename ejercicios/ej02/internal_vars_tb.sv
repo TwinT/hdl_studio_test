@@ -18,7 +18,7 @@ module internal_vars_tb;
   // ── Señales ────────────────────────────────────────────────────────────────
   logic done;
   logic a, b, c;
-  logic pass, result, exp, dv;
+  logic pass, result, exp;
   logic [2:0] value;
 
   // Esto se llama "concatenación" y permite asignar varias señales a la vez. En este caso, se asigna el valor de la señal "value" a las tres entradas del módulo bajo prueba.
@@ -50,7 +50,7 @@ module internal_vars_tb;
       .pass,
       .done,
       .value,
-      .dv
+      .dv()
   );
 
     // ── Traza FST y terminación ────────────────────────────────────────────────

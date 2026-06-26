@@ -8,5 +8,9 @@
         "build"
       ]
     }
-  ]
+  ],
+  "flags": "-Wno-empty-output-connection",
+  "inlayHints": {
+    "portTypes": false
+  }
 }

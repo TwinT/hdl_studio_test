@@ -1,6 +1,4 @@
-// Testbench para helloworld.sv
-
-module helloworld_tb;
+module mux_tb;
 
   // ── Clock & Reset ──────────────────────────────────────────────────────────
   logic clk = 0;
@@ -13,39 +11,39 @@ module helloworld_tb;
   end
 
   // ── Señales ────────────────────────────────────────────────────────────────
+
+  logic result, exp, pass, done;
+  logic a, b;
   logic [1:0] value;
-  logic       a, b, result;
-  logic       pass;
-  logic done;
 
-  assign a = value[0];
-  assign b = value[1];
+  assign {a, b} = value;
 
-  // ── DUT ────────────────────────────────────────────────────────────────────
-  helloworld dut (
-      .a(a),
-      .b(b),
-      .c(result)
+  negador_condicional dut (
+      .bit_a_negar(a),
+      .negar(b),
+      .out(result)
   );
 
-  assign pass = (result == (~a | ~b));
+  always_comb begin
+    if (b) exp = ~a;
+    else exp = a;
+  end
 
-  // ── Oracle (recorre todas las combinaciones de entradas) ───────────────────
-  oracle_tb #(
-      .N(2)
-  ) oracle (
-      .clk  (clk),
-      .rst  (rst),
-      .pass (pass),
-      .done (done),
-      .value(value),
-      .dv   ()
+  assign pass = result == exp;
+
+  oracle_tb #(2) oracle (
+      .clk,
+      .rst,
+      .pass,
+      .done,
+      .value,
+      .dv()
   );
 
   // ── Traza FST y terminación ────────────────────────────────────────────────
   initial begin
     $dumpfile("build/sim.fst");
-    $dumpvars(0, helloworld_tb);
+    $dumpvars(0, mux_tb);
 
     wait (done);
 
@@ -54,3 +52,6 @@ module helloworld_tb;
   end
 
 endmodule
+
+
+
