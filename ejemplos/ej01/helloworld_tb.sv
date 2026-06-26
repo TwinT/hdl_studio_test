@@ -50,9 +50,9 @@ module helloworld_tb;
     wait (done);
 
     if (all_tests_passed)
-      $display("PASS: todos los tests pasaron");
+      $display("\033[32mPASS: todos los tests pasaron\033[0m");
     else
-      $display("FAIL: hubo combinaciones que fallaron (ver detalle arriba)");
+      $display("\033[31mFAIL: hubo combinaciones que fallaron (ver detalle arriba)\033[0m");
 
     #1;  // flush de la traza
     $finish;
