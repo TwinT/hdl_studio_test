@@ -35,7 +35,7 @@ VERILATOR_FLAGS := \
   --top-module $(TOP) \
   -Mdir $(BUILD_DIR)/obj_dir
 
-.PHONY: sim wave clean
+.PHONY: $(FST_FILE) sim wave clean
 
 sim: $(FST_FILE)
 
