@@ -1,9 +1,7 @@
 {
   "index": [
     {
-      "dirs": [
-        "ejercicios"
-      ],
+      "dirs": ["ejercicios", "talleres", "ejemplos"],
       "excludeDirs": [
         "build"
       ]
