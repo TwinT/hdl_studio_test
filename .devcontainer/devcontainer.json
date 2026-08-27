@@ -1,6 +1,8 @@
 {
   "name": "sd-dev",
   "image": "docker.io/twint/sd:latest",
+  "remoteUser": "ubuntu",
+  "updateRemoteUserUID": true,
   "initializeCommand": "xhost +local:root",
   "features": {},
   "runArgs": [
